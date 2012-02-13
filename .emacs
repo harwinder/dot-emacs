@@ -2,18 +2,24 @@
 
 (require 'smart-operator)
 
+(set-default-font "Inconsolata-12")
+
 (setq-default indent-tabs-mode nil)
+(setq column-number-mode t)
 
 (setq c-default-style "linux" 
       c-basic-offset 2)
-(add-hook 'c-mode-common-hook '(lambda () (smart-operator-mode 1)))
+;(add-hook 'c-mode-common-hook '(lambda () (smart-operator-mode 1)))
 ;(add-hook 'c-mode-common-hook '(lambda () (c-toggle-hungry-state 1)))
 (c-set-offset 'substatement-open 0)
 
 (defun my-c++-mode-hook ()
-  (setq c-basic-offset 2)
+  (setq c-default-style "linux"
+        c-basic-offset 2)
   (c-set-offset 'substatement-open 0))
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
+
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 (prefer-coding-system 'utf-8) 
 
@@ -22,7 +28,7 @@
 
 (global-set-key [f1]         'find-file)
 (global-set-key [f2]         'save-buffer)
-(global-set-key [f4]         'split-window-horizontally)
+(global-set-key [f4]         'goto-line)
 (global-set-key [f5]         'other-window)
 (global-set-key [f6]         'compile)
 (global-set-key [f7]         'next-error)
@@ -48,4 +54,23 @@ vi style of % jumping to matching brace."
       '("/code/hss/new/utrade-engine/ccl"))
 
 
-(setq smart-operator-mode 1)
+;(setq smart-operator-mode 1)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+ '(tool-bar-mode nil)
+ '(menu-bar-mode nil)
+ )
+
+(load-theme 'tango-dark)
+
+(setq jabber-account-list
+      '(("harwinder@gmail.com" 
+         (:network-server . "talk.google.com")
+         (:port . 443)
+         (:password . "watthefuck")
+         (:connection-type . ssl))))
+
