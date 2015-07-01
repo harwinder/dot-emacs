@@ -71,6 +71,6 @@ vi style of % jumping to matching brace."
       '(("harwinder@gmail.com" 
          (:network-server . "talk.google.com")
          (:port . 443)
-         (:password . "watthefuck")
+         (:password . "XXXXXXXX")
          (:connection-type . ssl))))
 
